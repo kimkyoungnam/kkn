@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+      <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+           <property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
+           <property name="url" value="jdbc:mariadb://localhost:3306/kkn" />
+           <property name="username" value="kkn"/>
+           <property name="password" value="0000"/>
+       </bean>
+       <!-- mybatis -->
+       <bean id="sqlSessionFactory"
+             class="org.mybatis.spring.SqlSessionFactoryBean">
+           <property name="dataSource" ref="dataSource" />
+        <!--    아래부분은 매핑할 xml파일이 있는 패키지경로를 설정한다.-->
+           <property name="typeAliasesPackage"
+                     value="kr.kim.dto" />
+           <property name="mapperLocations"
+                     value="classpath:mapper/*Mapper.xml" />
+       </bean>
+
+       <bean id="sqlSession"
+             class="org.mybatis.spring.SqlSessionTemplate">
+           <constructor-arg name="sqlSessionFactory"
+                            ref="sqlSessionFactory" />
+       </bean>
+</beans>

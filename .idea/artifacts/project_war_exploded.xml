@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="project:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/project_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="project/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="project" />
+          <element id="module-output" name="project.main" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: javax.servlet.jsp:jsp-api:2.2" />
+          <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:4.0.1" />
+          <element id="library" level="project" name="Gradle: junit:junit:4.12" />
+          <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.3" />
+        </element>
+      </element>
+      <element id="artifact" artifact-name="Gradle : org.example : project-1.0-SNAPSHOT.war (exploded)" />
+      <element id="artifact" artifact-name="Gradle : org.example : project-1.0-SNAPSHOT.war" />
+      <element id="javaee-facet-resources" facet="project.main/web/Web" />
+    </root>
+  </artifact>
+</component>
