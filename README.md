@@ -4,3 +4,4 @@ tomcat 9.0.12,
 intellij ,
 gradle 5.2.1,
 mybatis
+기본 board CRUD
