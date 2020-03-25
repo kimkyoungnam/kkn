@@ -2,5 +2,5 @@
 java 11,
 tomcat 9.0.12,
 intellij ,
-gradle
+gradle 5.2.1,
 mybatis
