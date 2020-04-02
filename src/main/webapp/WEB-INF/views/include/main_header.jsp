@@ -4,7 +4,7 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="/board/listAll" class="logo">
+    <a href="/" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>M</b>VC</span>
         <!-- logo for regular state and mobile devices -->

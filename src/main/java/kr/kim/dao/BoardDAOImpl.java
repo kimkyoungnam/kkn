@@ -1,6 +1,7 @@
 package kr.kim.dao;
 
 import kr.kim.dto.BoardDTO;
+import kr.kim.dto.Page;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 import javax.inject.Inject;

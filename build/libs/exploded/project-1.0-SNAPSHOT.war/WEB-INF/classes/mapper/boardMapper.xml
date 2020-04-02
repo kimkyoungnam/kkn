@@ -4,11 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
     <select id="listAll" resultType="BoardDTO">
+        <![CDATA[
         select
         bno,title,writer,content,regdate,viewcnt
         from board
         where bno > 0
-        order by bno desc
+        order by bno desc, regdate desc
+        ]]>
     </select>
     <insert id="listCreate">
         insert into board(

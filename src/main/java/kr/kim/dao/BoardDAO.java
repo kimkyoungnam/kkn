@@ -1,6 +1,8 @@
 package kr.kim.dao;
 
 import kr.kim.dto.BoardDTO;
+import kr.kim.dto.Page;
+
 import java.util.List;
 
 public interface BoardDAO {

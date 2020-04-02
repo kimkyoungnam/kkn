@@ -1,6 +1,7 @@
 package kr.kim.service;
 
 import kr.kim.dto.BoardDTO;
+import kr.kim.dto.Page;
 
 import java.util.List;
 

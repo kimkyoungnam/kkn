@@ -9,7 +9,7 @@
         bno,title,writer,content,regdate,viewcnt
         from board
         where bno > 0
-        order by bno desc
+        order by bno desc, regdate desc
         ]]>
     </select>
     <insert id="listCreate">

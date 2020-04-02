@@ -2,6 +2,7 @@ package kr.kim.service;
 
 import kr.kim.dao.BoardDAOImpl;
 import kr.kim.dto.BoardDTO;
+import kr.kim.dto.Page;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
