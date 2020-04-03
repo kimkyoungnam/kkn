@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="searchboard">
+    <select id="listAll" resultType="BoardDTO">
+        <![CDATA[
+        select
+            bno,title,writer,content,regdate,viewcnt
+        from board
+        where bno > 0
+        order by bno desc, regdate desc
+        limit #{pageStart},#{pageSize}
+        ]]>
+    </select>
+    <select id="listSearch" resultType="BoardDTO">
+        <![CDATA[
+        select
+            bno,title,writer,content,regdate,viewcnt
+        from board
+        where bno > 0
+         ]]>
+        <include refid="search"/>
+        <![CDATA[
+        order by bno desc, regdate desc
+        limit #{pageStart},#{pageSize}
+        ]]>
+    </select>
+    <select id="countSearch" resultType="int">
+        <![CDATA[
+        SELECT COUNT(bno)
+        FROM board
+        WHERE bno > 0
+        ]]>
+        <include refid="search"/>
+    </select>
+    <sql id="search">
+        <if test="searchType != null">
+            <if test="searchType == 't'.toString()">
+                and title like concat('%',#{keyword},'%')
+            </if>
+            <if test="searchType == 'c'.toString()">
+                and content like concat('%',#{keyword},'%')
+            </if>
+            <if test="searchType == 'w'.toString()">
+                and writer like concat('%',#{keyword},'%')
+            </if>
+            <if test="searchType == 'tc'.toString()">
+                and (
+                title like concat('%',#{keyword},'%')
+                or content like concat('%',#{keyword},'%')
+                )
+            </if>
+            <if test="searchType == 'cw'.toString()">
+                and (
+                content like concat('%',#{keyword},'%')
+                or writer like concat('%',#{keyword},'%')
+                )
+            </if>
+            <if test="searchType == 'tcw'.toString()">
+                and (
+                title like concat('%',#{keyword},'%')
+                or content like concat('%',#{keyword},'%')
+                or writer like concat('%',#{keyword},'%')
+                )
+            </if>
+        </if>
+    </sql>
+
+    <insert id="listCreate">
+        insert into board(
+        bno,title,content,writer,regdate,viewcnt
+        )values(
+        #{bno},#{title},#{content},#{writer},#{regdate},#{viewcnt}
+        )
+    </insert>
+    <select id="listRead" resultType="BoardDTO">
+        select
+        bno,title,content,writer,regdate,viewcnt
+        from board
+        where bno= #{bno}
+    </select>
+    <update id="listUpdate">
+        update board
+        set
+            title = #{title},
+            content=#{content}
+        where
+            bno=#{bno}
+    </update>
+    <update id="listViewCnt">
+		update board
+		set
+		viewcnt = viewcnt+1
+		where bno= #{bno}
+	</update>
+    <delete id="listDelete">
+        delete from board
+        where
+        bno=#{bno}
+    </delete>
+</mapper>
