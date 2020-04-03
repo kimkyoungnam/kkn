@@ -1,9 +1,12 @@
 # kkn
+-개발 환경
 java 11,
 tomcat 9.0.12,
 intellij ,
 gradle 5.2.1,
 bootstrap
 mybatis
-기본 board CRUD
-board paging
+
+1.board CRUD
+2.board paging
+3.board search
