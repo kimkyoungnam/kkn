@@ -3,6 +3,9 @@ package kr.kim.dto;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 public class Pagination {
     //게시물  전체 갯수
     private int totalCount;
@@ -41,6 +44,25 @@ public class Pagination {
                 .queryParam("pageSize", page.getPageSize())
                 .build();
         return uriComponents.toUriString();
+    }
+    public String makeSearch(int currentPage){
+        UriComponents uriComponents= UriComponentsBuilder.newInstance()
+                .queryParam("currentPage",currentPage)
+                .queryParam("pageSize",page.getPageSize())
+                .queryParam("searchType",((SearchOption)page).getSearchType())
+                .queryParam("keyword",encoding(((SearchOption)page).getKeyword()))
+                .build();
+        return uriComponents.toUriString();
+    }
+    private String encoding(String keyword){
+        if (keyword==null||keyword.trim().length()==0){
+            return "";
+        }
+        try {
+            return URLEncoder.encode(keyword,"UTF-8");
+        }catch (UnsupportedEncodingException e){
+            return "";
+        }
     }
     public int getTotalCount() {
         return totalCount;

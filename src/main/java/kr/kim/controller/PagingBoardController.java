@@ -3,9 +3,8 @@ package kr.kim.controller;
 import kr.kim.dto.BoardDTO;
 import kr.kim.dto.Page;
 import kr.kim.dto.Pagination;
-import kr.kim.service.BoardServiceImpl;
-import kr.kim.service.PageBoardService;
-import kr.kim.service.PageBoardServiceImpl;
+import kr.kim.dto.SearchOption;
+import kr.kim.service.PagingBoardServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -20,16 +19,16 @@ import javax.inject.Inject;
 @Controller
 public class PagingBoardController {
     private final Logger logger= LoggerFactory.getLogger(PagingBoardController.class);
-    private final PageBoardServiceImpl boardSerivce;
+    private final PagingBoardServiceImpl boardSerivce;
     @Inject
-    public PagingBoardController(PageBoardServiceImpl boardSerivce){
+    public PagingBoardController(PagingBoardServiceImpl boardSerivce){
         this.boardSerivce=boardSerivce;
     }
 
     //list 목록
     @RequestMapping("/paging/listAll")
     public String boardList(Model model, Page page) throws Exception {
-        logger.info("listAll:::::::");
+        logger.info("search-listAll:::::::");
         Pagination pagination= new Pagination();
         pagination.setPage(page);
         pagination.setTotalCount(boardSerivce.listTotalCount(page));

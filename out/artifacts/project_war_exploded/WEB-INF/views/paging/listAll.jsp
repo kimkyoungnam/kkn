@@ -68,19 +68,19 @@
                        <div class="text-center">
                             <ul class="pagination">
                                 <c:if test="${pagination.prev}">
-                                    <li><a href="${path}/paging/listAll?currentPage=${pagination.startPage-1}">이전</a></li>
-                                    <%--<li><a href="${path}/paging/listAll${pagination.makeQuery(pagination.startPage-1)}">이전</a></li>--%>
+                                    <%--<li><a href="${path}/paging/listAll?currentPage=${pagination.startPage-1}">이전</a></li>--%>
+                                    <li><a href="${path}/paging/listAll${pagination.makeQuery(pagination.startPage-1)}">이전</a></li>
                                 </c:if>
                                 <c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
                                     <li <c:out value="${pagination.page.currentPage == idx ? 'class=active':''}"/>>
-                                        <a href="${path}/paging/listAll?currentPage=${idx}">${idx}</a>
-                                        <%--<a href="${path}/paging/listAll${pagination.makeQuery(idx)}">${idx}</a>--%>
+                                        <%--<a href="${path}/paging/listAll?currentPage=${idx}">${idx}</a>--%>
+                                        <a href="${path}/paging/listAll${pagination.makeQuery(idx)}">${idx}</a>
                                     </li>
                                 </c:forEach>
                                 <c:if test="${pagination.next}">
                                     <li>
-                                        <a href="${path}/paging/listAll?currentPage=${pagination.endPage+1}">다음</a>
-                                        <%--<a href="${path}/paging/listAll?${pagination.makeQuery(pagination.endPage+1)}">다음</a>--%>
+                                        <%--<a href="${path}/paging/listAll?currentPage=${pagination.endPage+1}">다음</a>--%>
+                                        <a href="${path}/paging/listAll${pagination.makeQuery(pagination.endPage+1)}">다음</a>
                                     </li>
                                 </c:if>
                             </ul>

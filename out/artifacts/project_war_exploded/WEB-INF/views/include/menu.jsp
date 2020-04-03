@@ -34,28 +34,38 @@
             <!-- Optionally, you can add icons to the links -->
 
             <li class="treeview">
-                <a href="#"><i class="fa fa-link"></i> <span>게시판</span>
+                <a href="#"><i class="fa fa-link"></i> <span>게시판(기본)</span>
                     <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="${path}/board/listAll">게시판목록</a></li>
-                    <li><a href="${path}/board/listCreate">게시글작성</a></li>
+                    <li><a href="/board/listAll">게시판목록</a></li>
+                    <li><a href="/board/listCreate">게시글작성</a></li>
                 </ul>
             </li>
             <li class="treeview">
-            <a href="#"><i class="fa fa-link"></i> <span>게시판Paging</span>
-                <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="${path}/paging/listAll">게시판목록</a></li>
-                <li><a href="${path}/paging/listCreate">게시글작성</a></li>
-            </ul>
+                <a href="#"><i class="fa fa-link"></i> <span>게시판(Paging)</span>
+                    <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/paging/listAll">게시판목록</a></li>
+                    <li><a href="/paging/listCreate">게시글작성</a></li>
+                </ul>
             </li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-link"></i> <span>게시판(Paging+검색)</span>
+                    <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/search/listAll">게시판목록</a></li>
+                    <li><a href="/paging/listCreate">게시글작성</a></li>
+                </ul>
+            </li>
             <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->

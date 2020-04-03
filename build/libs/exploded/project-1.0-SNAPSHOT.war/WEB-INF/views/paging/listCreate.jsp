@@ -57,7 +57,7 @@
 
                         </div>
                         <div class="box-footer">
-                            <button type="button" class="btn btn-primary"><i class="fa fa-list"></i>목록</button>
+                            <button type="button" class="btn btn-primary" id="btnlist"><i class="fa fa-list"></i>목록</button>
                             <div class="pull-right">
                                 <button type="reset" class="btn btn-primary">초기화</button>
                                 <button type="submit" class="btn btn-primary">저장</button>
@@ -83,6 +83,13 @@
 <!-- begin::  plugin-->
 <%@include file="../include/plugin_js.jsp"%>
 <!-- End::  plugin-->
-
+<script>
+    $(function(){
+        // 목록 버튼 클릭시
+        $("#btnlist").on("click", function () {
+            self.location = "/paging/listAll";
+        });
+    })
+</script>
 </body>
 </html>
