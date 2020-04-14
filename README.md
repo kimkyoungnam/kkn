@@ -1,7 +1,7 @@
 # kkn
 -개발 환경
 
-java 11,
+jdk-11,
 tomcat 9.0.12,
 intellij ,
 gradle 5.2.1,
